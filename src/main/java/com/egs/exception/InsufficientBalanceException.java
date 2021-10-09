@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 
 @ResponseStatus(HttpStatus.BAD_REQUEST)
 public class InsufficientBalanceException extends Exception {
-    public InsufficientBalanceException(String message){
+    public InsufficientBalanceException(String message) {
         super(message);
     }
 }

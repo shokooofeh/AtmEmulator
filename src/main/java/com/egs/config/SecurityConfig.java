@@ -1,5 +1,7 @@
 package com.egs.config;
 
+import com.egs.handler.CustomLoginFailureHandler;
+import com.egs.handler.CustomLoginSuccessHandler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -25,6 +27,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .loginProcessingUrl("/app-login")
                 .usernameParameter("app_username")
                 .passwordParameter("app_password")
+                .failureHandler(loginFailureHandler)
+                .successHandler(loginSuccessHandler)
+                .permitAll()
                 .defaultSuccessUrl("/app/secure/account-details")
                 .and().logout()       //logout configuration
                 .logoutUrl("/app-logout")
@@ -38,4 +43,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder);
     }
+
+
+    @Autowired
+    private CustomLoginFailureHandler loginFailureHandler;
+
+    @Autowired
+    private CustomLoginSuccessHandler loginSuccessHandler;
 }

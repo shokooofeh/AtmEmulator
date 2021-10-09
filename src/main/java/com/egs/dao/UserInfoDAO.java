@@ -21,14 +21,31 @@ public class UserInfoDAO implements IUserInfoDAO {
     @Override
     public UserInfo getActiveUser(String userName) {
         UserInfo activeUserInfo = new UserInfo();
-        List<?> list = entityManager.createQuery("SELECT u FROM UserInfo u WHERE userName=? AND is_blocked=0 ")
-                .setParameter(1, userName).getResultList();
+        List<?> list = entityManager.createQuery("SELECT u FROM UserInfo u WHERE userName=?1")
+                .setParameter(1, userName)
+                .getResultList();
         if (!list.isEmpty())
             activeUserInfo = (UserInfo) list.get(0);
 
         this.userId = activeUserInfo.getUserId();
         this.fullName = activeUserInfo.getFullName();
         return activeUserInfo;
+    }
+
+
+    @Override
+    public void updateFailedAttempts(int failAttempts, String userName) {
+        Query updateRetryCount = entityManager.createQuery("UPDATE UserInfo SET retryCount=?1 WHERE userName=?2 ")
+                .setParameter(1, failAttempts)
+                .setParameter(2, userName);
+        updateRetryCount.executeUpdate();
+    }
+
+    @Override
+    public void lock(String userName) {
+        Query updateRetryCount = entityManager.createQuery("UPDATE UserInfo SET isBlocked=1 WHERE userName=?1 ")
+                .setParameter(1, userName);
+        updateRetryCount.executeUpdate();
     }
 
     @Override

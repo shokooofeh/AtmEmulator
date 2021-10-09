@@ -54,12 +54,12 @@ public class UserInfo implements Serializable {
         this.fullName = fullName;
     }
 
-    public Boolean getIsBlocked() {
+    public Boolean getBlocked() {
         return isBlocked;
     }
 
-    public void setIsActive(Boolean isBlocked) {
-        this.isBlocked = isBlocked;
+    public void setBlocked(Boolean blocked) {
+        isBlocked = blocked;
     }
 
     public int getRetryCount() {

@@ -8,6 +8,10 @@ public interface IUserInfoDAO {
 
     String getFullName();
 
+    void updateFailedAttempts(int failAttempts, String userName);
+
+    void lock(String userName);
+
     Account getAllBalances();
 
     void withdraw(double amt);

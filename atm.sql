@@ -21,7 +21,7 @@ INSERT INTO `users` (`user_id`, `username`, `password`, `full_name`, `is_blocked
     (3, '378734493671000', '$2a$10$2/1BYZb7FDesgQjT5fYDVOKIiEPwKCv5iml2N6chNHwLmMmLMox0W', 'Shokooh H',0,0), -- 789
     (4, '305693090259041', '$2a$10$IvE9tf62Iubq/vmjcfrjzOZBYJnmZLV54ugdE30ouPm8MBy37uqUW', 'Hasan A',0,0), -- 987
     (5, '385200000232372', '$2a$10$WGc9I8gt0tycf9.d27vd6O/i.MkYadlZxb.lCVQqyUj2gfAQfbmMe', 'Fakhri A',0,0), -- 654
-    (6, '601111111111111', '$2a$10$5..6MwhbUBOd4r0xx5vRN.gJAkhYba/uNAjs4pvwOadprFMxHskry', 'Ali Something',0,0); -- 321
+    (6, '601111111111111', '$2a$10$5..6MwhbUBOd4r0xx5vRN.gJAkhYba/uNAjs4pvwOadprFMxHskry', 'Ali 8',0,0); -- 321
 
 -- Dumping structure for table atm.accounts
 CREATE TABLE IF NOT EXISTS `accounts` (

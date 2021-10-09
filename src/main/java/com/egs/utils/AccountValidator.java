@@ -12,9 +12,10 @@ public class AccountValidator {
 
         return true;
     }
-    public static boolean validateAmount(double amount) throws InvalidAmountException{
-        if (amount<=0)
-                throw new InvalidAmountException("Amount is  Invalid");
+
+    public static boolean validateAmount(double amount) throws InvalidAmountException {
+        if (amount <= 0)
+            throw new InvalidAmountException("Amount is  Invalid");
         return true;
     }
 }
